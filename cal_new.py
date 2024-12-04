@@ -1,43 +1,56 @@
+# Importing math module
+
 import math
 
+#for summation
 def add(a, b):
     return a + b
-
+    
+#for subtraction
 def subtract(a, b):
     return a - b
-
+    
+#for multiplication
 def multiply(a, b):
     return a * b
-
+    
+#for divition
 def divide(a, b):
     if b == 0:
         return "error"
     return a / b
-
+    
+#for exponential
 def exponential(a, b):
     return a ** b
-
+    
+#for logarithm
 def logarithm(a, b):
     if a <= 0 or b <= 0 or b == 1:
         return "error"
     return math.log(a, b)
-
+    
+#for square root
 def square_root(a):
     if a < 0:
         return "error"
     return math.sqrt(a)
-
+    
+#for factorial
 def factorial(a):
     if a < 0 or not a.is_integer():
         return "error"
     return math.factorial(int(a))
-
+    
+#for remainder
 def modulo(a, b):
     return a % b
-
+    
+#for absolute value
 def absolute_value(a):
     return abs(a)
-
+    
+# history tracking
 calculation_history = []
 
 def history(operation, a, b, result):
@@ -46,6 +59,7 @@ def history(operation, a, b, result):
     else:
         calculation_history.append(f"{operation}({a}) = {result}")
 
+#shows the calculation history
 def view_history():
     if not calculation_history:
         print("No history available\n")
@@ -55,6 +69,7 @@ def view_history():
             print(entry)
     print()
 
+# Main program loop
 while True:
     print("Advanced Calculator\n")
     print("Choose an option:")
@@ -70,7 +85,8 @@ while True:
     print("10. Absolute Value")
     print("11. View History")
     print("12. Exit")
-
+    
+    #user input
     choice = input("Enter what you want to do (1-12): ")
 
     if choice not in [str(i) for i in range(1, 13)]:
@@ -124,9 +140,11 @@ while True:
             history("abs", num, None, result)
 
         print(f"Result: {result}\n")
-
+        
+     #history viewing
     elif choice == '11':
         view_history()
+    # exit the program    
     else:
         print("Exit")
         break
